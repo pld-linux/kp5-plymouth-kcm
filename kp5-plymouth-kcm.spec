@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.23.5
+%define		kdeplasmaver	5.24.0
 %define		qtver		5.9.0
 %define		kpname		plymouth-kcm
 
 Summary:	KDE Config Module for Plyouth
 Name:		kp5-%{kpname}
-Version:	5.23.5
+Version:	5.24.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	aa4fe0741ed7193761b65b0b938cc82d
+# Source0-md5:	8b19cc2d7929cf988a44606a3eba7644
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.0
 BuildRequires:	Qt5Gui-devel >= 5.15.0
@@ -63,7 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kplymouththemeinstaller
-%{_libdir}/qt5/plugins/kcms/kcm_plymouth.so
 %attr(755,root,root) %{_prefix}/libexec/kauth/plymouthhelper
 %{_datadir}/dbus-1/system-services/org.kde.kcontrol.kcmplymouth.service
 %{_datadir}/dbus-1/system.d/org.kde.kcontrol.kcmplymouth.conf
@@ -72,7 +71,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/kpackage/kcms/kcm_plymouth/contents
 %dir %{_datadir}/kpackage/kcms/kcm_plymouth/contents/ui
 %{_datadir}/kpackage/kcms/kcm_plymouth/contents/ui/main.qml
-%{_datadir}/kpackage/kcms/kcm_plymouth/metadata.desktop
-%{_datadir}/kpackage/kcms/kcm_plymouth/metadata.json
-%{_datadir}/kservices5/kcm_plymouth.desktop
 %{_datadir}/polkit-1/actions/org.kde.kcontrol.kcmplymouth.policy
+%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_plymouth.so
+%{_desktopdir}/kcm_plymouth.desktop
