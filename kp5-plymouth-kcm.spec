@@ -1,15 +1,18 @@
-%define		kdeplasmaver	5.24.3
+#
+# Conditional build:
+%bcond_with	tests		# build with tests
+%define		kdeplasmaver	5.24.4
 %define		qtver		5.9.0
 %define		kpname		plymouth-kcm
 
 Summary:	KDE Config Module for Plyouth
 Name:		kp5-%{kpname}
-Version:	5.24.3
+Version:	5.24.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	b707c971ac3f5218d5a180a479b65d7c
+# Source0-md5:	596abe6a512c6ec67232ec9f79dd087b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.0
 BuildRequires:	Qt5Gui-devel >= 5.15.0
@@ -43,10 +46,15 @@ KDE Config Module for Plymouth.
 install -d build
 cd build
 %cmake -G Ninja \
+	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	../
 %ninja_build
+
+%if %{with tests}
+ctest
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
