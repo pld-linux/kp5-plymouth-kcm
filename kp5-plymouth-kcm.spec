@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.25.0
+%define		kdeplasmaver	5.25.1
 %define		qtver		5.9.0
 %define		kpname		plymouth-kcm
 
 Summary:	KDE Config Module for Plyouth
 Name:		kp5-%{kpname}
-Version:	5.25.0
+Version:	5.25.1
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	4cecdfdbc68c88173948ab2c0e396431
+# Source0-md5:	54e57c86a638975d09d5b88efca1a19c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.0
 BuildRequires:	Qt5Gui-devel >= 5.15.0
